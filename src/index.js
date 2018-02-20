@@ -37,9 +37,13 @@ class Sorter {
 
     arr2.sort(this.setComparator(this.comparator));
 
+    indices.sort(this.setComparator(this.comparator));
+
     for (let i = 0; i < indices.length; i++) {
       arr[indices[i]] = arr2[i];
     }
+    // console.log('arr2', arr2);
+    // console.log('arr', arr);
   }
 
   // takes compareFunction as parameter and use it while sorting elements
