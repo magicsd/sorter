@@ -31,13 +31,14 @@ class Sorter {
     let arr = this.elements;
     let arr2 = []; // массив элементов по заданным индексам
     // arr.sort(this.setComparator(this.comparator));
+
     for (let i = 0; i < indices.length; i++) {
       arr2.push(this.at(indices[i]));
     }
 
     arr2.sort(this.setComparator(this.comparator));
 
-    indices.sort(this.setComparator(this.comparator));
+    indices.sort((a, b) => (a - b));
 
     for (let i = 0; i < indices.length; i++) {
       arr[indices[i]] = arr2[i];
@@ -50,8 +51,9 @@ class Sorter {
   // Sort should work for numbers by default
   // (if compareFunction was not set directly using this method)
   setComparator(compareFunction) {
-    // console.log('this.comparator', this.comparator);
+    // console.log('this.comparator before', this.comparator);
     this.comparator = compareFunction;
+    // console.log('this.comparator after', this.comparator);
     return this.comparator;
   }
 }
